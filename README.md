@@ -1,5 +1,5 @@
-# Laboratorio 2: Aplicacion servidor (Protocolo HFTP)
-### Integrantes: Fracchia Joaquin, Germán John
+# Laboratorio 2: Aplicacion servidor (Protocolo FTP)
+### Fracchia Joaquin
 
 
 
@@ -48,14 +48,3 @@ Otra fue en lo referido a la robustez. Considerar cada caso de pasaje de argumen
 
 La dificultad que más tiempo nos consumió fue el hecho de que la conexión pueda manejar múltiples comandos. Intentamos muchas veces hacer *split* y simplemente mandar un comando a ejecutar y otros a esperar, pero entraban conflictos con otros tests y tuvimos que redefinir algunos manejos de errores. La complicación fue entender que teníamos que ir ejecutando los n-1 comandos y esperar al último. Antes de poder llegar a esa implementación probamos una forma más ineficiente (esperar a que llegue todo antes de dividir y ejecutar) que generaba conflictos, pero anduvo.
 Finalmente pudimos cambiar nuevamente a la idea original, y logramos implementarla.
-
-
-# Preguntas
-
-1. ¿Qué estrategias existen para poder implementar este mismo servidor pero con capacidad de atender múltiples clientes simultáneamente? Investigue y responda brevemente qué cambios serían necesario en el diseño del código.
-
-2. Pruebe ejecutar el servidor en una máquina del laboratorio, mientras utiliza el cliente desde otra, hacia la ip de la máquina servidor. ¿Qué diferencia hay si se corre el servidor desde la IP “localhost”, “127.0.0.1” o la ip “0.0.0.0”?
-
-1) Una forma de implementar el mismo servidor pero con capacidad de atender multiples clientes simultàneamente, es usando Multi-threaded. Agregando el modulo _thread en el server, y creando una clase de hilo principal que vaya creando hilos nuevos cada vez que se conecta un cliente. Tambien agregarle cuantas cantidad de peticiones que puede realizar en cola con socket.listen() 
-
-2) No pudimos probar de ejecutar el servidor en una maquina del laboratorio, mientras utiliza el cliente desde otra. 
